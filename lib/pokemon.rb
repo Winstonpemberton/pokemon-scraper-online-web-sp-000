@@ -1,3 +1,4 @@
+require 'pry'
 class Pokemon
   attr_accessor :id, :name, :type, :db
 
@@ -15,6 +16,16 @@ class Pokemon
     SQL
 
     db.execute(sql, name, type)
+  end
+
+  def self.find_by_name(id, db)
+    sql = <<-SQL
+      Select * From pokemon
+      Where id = ?
+      Limit 1
+    SQL
+    binding.pry
+    db.execute(sql, id).flatten
   end
 
 end
