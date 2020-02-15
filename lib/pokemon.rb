@@ -23,6 +23,8 @@ class Pokemon
       Select * From pokemon
       Where id = ?
     SQL
+    binding.pry
+    db.execute(sql, id).flatten
   end
 
 end
