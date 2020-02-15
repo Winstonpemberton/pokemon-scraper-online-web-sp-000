@@ -22,10 +22,9 @@ class Pokemon
     sql = <<-SQL
       Select * From pokemon
       Where id = ?
-      Limit 1
     SQL
     binding.pry
-    db.execute(sql, id).flatten
+  #db.execute(sql, id).flatten
   end
 
 end
