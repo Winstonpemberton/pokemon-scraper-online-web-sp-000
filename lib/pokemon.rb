@@ -23,8 +23,13 @@ class Pokemon
       Select * From pokemon
       Where id = ?
     SQL
-    binding.pry
-    db.execute(sql, id).flatten
+    # binding.pry
+    attributes = db.execute(sql, id).flatten
+    pokemon = Pokemon.new(db)
+    pokemon.id = attributes[0]
+    pokemon.name = attributes[1]
+    pokemon.type = attributes[2]
+    pokemon
   end
 
 end
