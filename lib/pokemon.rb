@@ -7,4 +7,14 @@ class Pokemon
     @type = type
     @db = db
   end
+
+  def save(name, type)
+  sql = <<-SQL
+    INSERT INTO pokemon(name, grade)
+    VALUES (?, ?)
+  SQL
+
+  self.db.execute(sql, self.name, self.type)
+end
+
 end
